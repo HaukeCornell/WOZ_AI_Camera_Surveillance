@@ -1,0 +1,162 @@
+[
+    {
+        "id": "51fc485990eae9e2",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e571d68e56c63ba3",
+        "type": "python3-function",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "func": "import RPi.GPIO as GPIO\nimport time\nGPIO.setmode(GPIO.BOARD)\ncontrol_pins = [7,11,13,15]\nfor pin in control_pins:\n  GPIO.setup(pin, GPIO.OUT)\n  GPIO.output(pin, 0)\nhalfstep_seq = [\n  [1,0,0,0],\n  [1,1,0,0],\n  [0,1,0,0],\n  [0,1,1,0],\n  [0,0,1,0],\n  [0,0,1,1],\n  [0,0,0,1],\n  [1,0,0,1]\n]\nfor i in range(512):\n  for halfstep in range(8):\n    for pin in range(4):\n      GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n    time.sleep(0.001)\nGPIO.cleanup()",
+        "outputs": 1,
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "1ba166d64e72998b"
+            ]
+        ]
+    },
+    {
+        "id": "8e1651530bec4560",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "e571d68e56c63ba3"
+            ]
+        ]
+    },
+    {
+        "id": "b656d2aa9b7a57c8",
+        "type": "exec",
+        "z": "51fc485990eae9e2",
+        "command": "sudo python3 ~/Downloads/pixelTest.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "6465a5aa99d6378d"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "30b1d7cefce4962c",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "b656d2aa9b7a57c8"
+            ]
+        ]
+    },
+    {
+        "id": "1ba166d64e72998b",
+        "type": "debug",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6465a5aa99d6378d",
+        "type": "debug",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0737718ff282b15f",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "kill",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "b656d2aa9b7a57c8"
+            ]
+        ]
+    }
+]
