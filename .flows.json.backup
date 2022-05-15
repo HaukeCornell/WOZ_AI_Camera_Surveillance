@@ -1,0 +1,244 @@
+[
+    {
+        "id": "51fc485990eae9e2",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e571d68e56c63ba3",
+        "type": "python3-function",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "func": "import RPi.GPIO as GPIO\nimport time\nGPIO.setmode(GPIO.BOARD)\ncontrol_pins = [7,11,13,15]\nfor pin in control_pins:\n  GPIO.setup(pin, GPIO.OUT)\n  GPIO.output(pin, 0)\nhalfstep_seq = [\n  [1,0,0,0],\n  [1,1,0,0],\n  [0,1,0,0],\n  [0,1,1,0],\n  [0,0,1,0],\n  [0,0,1,1],\n  [0,0,0,1],\n  [1,0,0,1]\n]\nfor i in range(512):\n  for halfstep in range(8):\n    for pin in range(4):\n      GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n    time.sleep(0.001)\nGPIO.cleanup()",
+        "outputs": 1,
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "1ba166d64e72998b"
+            ]
+        ]
+    },
+    {
+        "id": "8e1651530bec4560",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "e571d68e56c63ba3"
+            ]
+        ]
+    },
+    {
+        "id": "b656d2aa9b7a57c8",
+        "type": "exec",
+        "z": "51fc485990eae9e2",
+        "command": "sudo python3 ~/Downloads/pixelTest.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "6465a5aa99d6378d"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "30b1d7cefce4962c",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "b656d2aa9b7a57c8"
+            ]
+        ]
+    },
+    {
+        "id": "1ba166d64e72998b",
+        "type": "debug",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6465a5aa99d6378d",
+        "type": "debug",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0737718ff282b15f",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "kill",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "b656d2aa9b7a57c8"
+            ]
+        ]
+    },
+    {
+        "id": "b8a0a8a1ed9afc77",
+        "type": "python3-function",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "func": "import RPi.GPIO as GPIO\nimport time\nGPIO.setmode(GPIO.BOARD)\ncontrol_pins = [7,11,13,15]\nfor pin in control_pins:\n    GPIO.setup(pin, GPIO.OUT)\n    GPIO.output(pin, 0)\n\nhalfstep_seq = [\n    [1,0,0,0],\n    [1,1,0,0],\n    [0,1,0,0],\n    [0,1,1,0],\n    [0,0,1,0],\n    [0,0,1,1],\n    [0,0,0,1],\n    [1,0,0,1]\n]\n\nnode.send(\"direction: \" + str(msg['payload']['direction']) + \"  steps: \"+ str(int(msg['payload']['steps'])) + \"  waitBetweenSteps: \" + str(float(msg['payload']['waitBetweenSteps'] )))\n\nif msg['payload']['direcion'] == \"forward\":\n    for i in range(int(msg['payload']['steps'])):\n        for halfstep in range(8):\n            for pin in range(4):\n                GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n            time.sleep(float(msg['payload']['waitBetweenSteps']))\n        \n\nelif msg['payload']['direcion'] == \"backward\":\n\n    for i in range(msg['payload']['steps']):\n        for halfstep in reversed(range(8)):\n            for pin in range(4):\n                GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n            time.sleep(float(msg['payload']['waitBetweenSteps']))\n\nGPIO.cleanup()\n\n",
+        "outputs": 1,
+        "x": 490,
+        "y": 380,
+        "wires": [
+            [
+                "f4675ee063a53a3b"
+            ]
+        ]
+    },
+    {
+        "id": "2010e6828c0d6f63",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "Json Stepper Definition",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"direction\":\"forward\",\"steps\":512,\"waitBetweenSteps\":0.001}",
+        "payloadType": "json",
+        "x": 220,
+        "y": 380,
+        "wires": [
+            [
+                "b8a0a8a1ed9afc77"
+            ]
+        ]
+    },
+    {
+        "id": "f4675ee063a53a3b",
+        "type": "debug",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2a8424f69dab76c6",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "Json Stepper Definition",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"direction\":\"backward\",\"steps\":512,\"waitBetweenSteps\":0.001}",
+        "payloadType": "json",
+        "x": 220,
+        "y": 420,
+        "wires": [
+            [
+                "b8a0a8a1ed9afc77"
+            ]
+        ]
+    }
+]
