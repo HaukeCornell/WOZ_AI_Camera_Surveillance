@@ -8,48 +8,119 @@
         "env": []
     },
     {
-        "id": "e571d68e56c63ba3",
-        "type": "python3-function",
-        "z": "51fc485990eae9e2",
-        "name": "",
-        "func": "import RPi.GPIO as GPIO\nimport time\nGPIO.setmode(GPIO.BOARD)\ncontrol_pins = [7,11,13,15]\nfor pin in control_pins:\n  GPIO.setup(pin, GPIO.OUT)\n  GPIO.output(pin, 0)\nhalfstep_seq = [\n  [1,0,0,0],\n  [1,1,0,0],\n  [0,1,0,0],\n  [0,1,1,0],\n  [0,0,1,0],\n  [0,0,1,1],\n  [0,0,0,1],\n  [1,0,0,1]\n]\nfor i in range(512):\n  for halfstep in range(8):\n    for pin in range(4):\n      GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n    time.sleep(0.001)\nGPIO.cleanup()",
-        "outputs": 1,
-        "x": 350,
-        "y": 280,
-        "wires": [
-            [
-                "1ba166d64e72998b"
-            ]
-        ]
+        "id": "dac2eed660b33142",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     },
     {
-        "id": "8e1651530bec4560",
-        "type": "inject",
-        "z": "51fc485990eae9e2",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
+        "id": "7f7a5cadcd740f94",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
             },
-            {
-                "p": "topic",
-                "vt": "str"
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
             }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 280,
-        "wires": [
-            [
-                "e571d68e56c63ba3"
-            ]
-        ]
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "0c51c89e7beff37c",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "dac2eed660b33142",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "b656d2aa9b7a57c8",
@@ -103,22 +174,6 @@
         ]
     },
     {
-        "id": "1ba166d64e72998b",
-        "type": "debug",
-        "z": "51fc485990eae9e2",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 280,
-        "wires": []
-    },
-    {
         "id": "6465a5aa99d6378d",
         "type": "debug",
         "z": "51fc485990eae9e2",
@@ -164,7 +219,7 @@
         "type": "python3-function",
         "z": "51fc485990eae9e2",
         "name": "",
-        "func": "import RPi.GPIO as GPIO\nimport time\nGPIO.setmode(GPIO.BOARD)\ncontrol_pins = [7,11,13,15]\nfor pin in control_pins:\n    GPIO.setup(pin, GPIO.OUT)\n    GPIO.output(pin, 0)\n\nhalfstep_seq = [\n    [1,0,0,0],\n    [1,1,0,0],\n    [0,1,0,0],\n    [0,1,1,0],\n    [0,0,1,0],\n    [0,0,1,1],\n    [0,0,0,1],\n    [1,0,0,1]\n]\n\nnode.send(\"direction: \" + str(msg['payload']['direction']) + \"  steps: \"+ str(int(msg['payload']['steps'])) + \"  waitBetweenSteps: \" + str(float(msg['payload']['waitBetweenSteps'] )))\n\nif msg['payload']['direction'] == \"forward\":\n    for i in range(int(msg['payload']['steps'])):\n        for halfstep in range(8):\n            for pin in range(4):\n                GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n            time.sleep(float(msg['payload']['waitBetweenSteps']))\n        \n\nelif msg['payload']['direction'] == \"backward\":\n\n    for i in range(msg['payload']['steps']):\n        for halfstep in reversed(range(8)):\n            for pin in range(4):\n                GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n            time.sleep(float(msg['payload']['waitBetweenSteps']))\n\nGPIO.cleanup()\n\n",
+        "func": "import RPi.GPIO as GPIO\nimport time\nGPIO.setmode(GPIO.BOARD)\ncontrol_pins = [7,11,13,15]\nfor pin in control_pins:\n    GPIO.setup(pin, GPIO.OUT)\n    GPIO.output(pin, 0)\n\nhalfstep_seq = [\n    [1,0,0,0],\n    [1,1,0,0],\n    [0,1,0,0],\n    [0,1,1,0],\n    [0,0,1,0],\n    [0,0,1,1],\n    [0,0,0,1],\n    [1,0,0,1]\n]\n\nnode.send(\"direction: \" + str(msg['direction']) + \"  steps: \"+ str(int(msg['steps'])) + \"  waitBetweenSteps: \" + str(float(msg['waitBetweenSteps'] )))\n\nif msg['direction'] == \"forward\":\n    for i in range(int(msg['steps'])):\n        for halfstep in range(8):\n            for pin in range(4):\n                GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n            time.sleep(float(msg['waitBetweenSteps']))\n        \n\nelif msg['direction'] == \"backward\":\n\n    for i in range(msg['steps']):\n        for halfstep in reversed(range(8)):\n            for pin in range(4):\n                GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n            time.sleep(float(msg['waitBetweenSteps']))\n\nGPIO.cleanup()\n\n",
         "outputs": 1,
         "x": 490,
         "y": 380,
@@ -181,7 +236,19 @@
         "name": "Json Stepper Definition",
         "props": [
             {
-                "p": "payload"
+                "p": "direction",
+                "v": "forward",
+                "vt": "str"
+            },
+            {
+                "p": "steps",
+                "v": "512",
+                "vt": "num"
+            },
+            {
+                "p": "waitBetweenSteps",
+                "v": "0.001",
+                "vt": "num"
             }
         ],
         "repeat": "",
@@ -189,8 +256,6 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"direction\":\"forward\",\"steps\":512,\"waitBetweenSteps\":0.001}",
-        "payloadType": "json",
         "x": 220,
         "y": 380,
         "wires": [
@@ -217,13 +282,25 @@
         "wires": []
     },
     {
-        "id": "2a8424f69dab76c6",
+        "id": "a350e34bc06c10ba",
         "type": "inject",
         "z": "51fc485990eae9e2",
         "name": "Json Stepper Definition",
         "props": [
             {
-                "p": "payload"
+                "p": "direction",
+                "v": "backward",
+                "vt": "str"
+            },
+            {
+                "p": "steps",
+                "v": "512",
+                "vt": "num"
+            },
+            {
+                "p": "waitBetweenSteps",
+                "v": "0.001",
+                "vt": "num"
             }
         ],
         "repeat": "",
@@ -231,13 +308,354 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"direction\":\"backward\",\"steps\":512,\"waitBetweenSteps\":0.001}",
-        "payloadType": "json",
         "x": 220,
         "y": 420,
         "wires": [
             [
                 "b8a0a8a1ed9afc77"
+            ]
+        ]
+    },
+    {
+        "id": "3297b75b82b89c1c",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "direction",
+                "pt": "msg",
+                "to": "forward",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "waitBetweenSteps",
+                "pt": "msg",
+                "to": "0.001",
+                "tot": "str"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "steps",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 600,
+        "wires": [
+            [
+                "b8a0a8a1ed9afc77",
+                "f4675ee063a53a3b",
+                "8f1d8eb50e29ded6"
+            ]
+        ]
+    },
+    {
+        "id": "fe71253d25a2b7f4",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "direction",
+                "pt": "msg",
+                "to": "backward",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "waitBetweenSteps",
+                "pt": "msg",
+                "to": "0.001",
+                "tot": "str"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "steps",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 640,
+        "wires": [
+            [
+                "b8a0a8a1ed9afc77",
+                "f4675ee063a53a3b",
+                "06108d9602b98087"
+            ]
+        ]
+    },
+    {
+        "id": "b039fabc420e2d81",
+        "type": "ui_slider",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "label": "left",
+        "tooltip": "",
+        "group": "0c51c89e7beff37c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "steps",
+        "topicType": "msg",
+        "min": "0",
+        "max": "512",
+        "step": 1,
+        "className": "",
+        "x": 350,
+        "y": 600,
+        "wires": [
+            [
+                "3297b75b82b89c1c"
+            ]
+        ]
+    },
+    {
+        "id": "a06ac381633b4f90",
+        "type": "ui_slider",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "label": "right",
+        "tooltip": "",
+        "group": "0c51c89e7beff37c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "steps",
+        "topicType": "msg",
+        "min": "0",
+        "max": "512",
+        "step": 1,
+        "className": "",
+        "x": 350,
+        "y": 640,
+        "wires": [
+            [
+                "fe71253d25a2b7f4"
+            ]
+        ]
+    },
+    {
+        "id": "8f1d8eb50e29ded6",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 600,
+        "wires": [
+            [
+                "ecc36a5fd1dda4a4"
+            ]
+        ]
+    },
+    {
+        "id": "06108d9602b98087",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 640,
+        "wires": [
+            [
+                "de6fc59e44147bc2"
+            ]
+        ]
+    },
+    {
+        "id": "ecc36a5fd1dda4a4",
+        "type": "delay",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 600,
+        "wires": [
+            [
+                "b039fabc420e2d81"
+            ]
+        ]
+    },
+    {
+        "id": "de6fc59e44147bc2",
+        "type": "delay",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 640,
+        "wires": [
+            [
+                "a06ac381633b4f90"
+            ]
+        ]
+    },
+    {
+        "id": "fdccbec3a80aae1a",
+        "type": "ui_colour_picker",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "label": "",
+        "group": "0c51c89e7beff37c",
+        "format": "rgb",
+        "outformat": "string",
+        "showSwatch": false,
+        "showPicker": true,
+        "showValue": true,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 270,
+        "y": 760,
+        "wires": [
+            [
+                "147c59dc57af6bc0"
+            ]
+        ]
+    },
+    {
+        "id": "158872ab42aa15e0",
+        "type": "exec",
+        "z": "51fc485990eae9e2",
+        "command": "sudo python3 ~/Downloads/pixelColor.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 740,
+        "y": 760,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "147c59dc57af6bc0",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "rgb(",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": ",",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": ")",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 760,
+        "wires": [
+            [
+                "158872ab42aa15e0"
             ]
         ]
     }
