@@ -8,6 +8,13 @@
         "env": []
     },
     {
+        "id": "1311574b9598fed7",
+        "type": "tab",
+        "label": "Gotifier - Send Notifications",
+        "disabled": false,
+        "info": "Send a custom push notification via Gotify."
+    },
+    {
         "id": "dac2eed660b33142",
         "type": "ui_tab",
         "name": "Home",
@@ -20,7 +27,7 @@
         "id": "7f7a5cadcd740f94",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -32,7 +39,8 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -42,44 +50,44 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
+                    "default": "#097479",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
                     "value": "#111111",
                     "edited": false
                 },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#097479",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
@@ -96,9 +104,9 @@
         },
         "site": {
             "name": "Node-RED Dashboard",
-            "hideToolbar": "false",
+            "hideToolbar": "true",
             "allowSwipe": "false",
-            "lockMenu": "false",
+            "lockMenu": "icon",
             "allowTempTheme": "true",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
@@ -138,7 +146,7 @@
     {
         "id": "a805bc64178b1a5e",
         "type": "ui_group",
-        "name": "Rotate",
+        "name": "Debug",
         "tab": "655c8dc16a67b913",
         "order": 2,
         "disp": true,
@@ -168,6 +176,31 @@
         "name": "Debug",
         "icon": "bug_report",
         "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b63c3eb58a3b54a3",
+        "type": "gotify-server",
+        "name": "AI monitoring",
+        "url": "http://192.168.1.42"
+    },
+    {
+        "id": "ec74d5c2056e102f",
+        "type": "ui_group",
+        "name": "Send a Notification",
+        "tab": "951018d278c90a6e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "951018d278c90a6e",
+        "type": "ui_tab",
+        "name": "Gotifier - Send Notifications",
+        "icon": "fa-comment",
         "disabled": false,
         "hidden": false
     },
@@ -460,7 +493,7 @@
         "label": "left",
         "tooltip": "",
         "group": "a805bc64178b1a5e",
-        "order": 2,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -487,7 +520,7 @@
         "label": "right",
         "tooltip": "",
         "group": "a805bc64178b1a5e",
-        "order": 1,
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -615,7 +648,7 @@
         "type": "ui_colour_picker",
         "z": "51fc485990eae9e2",
         "name": "",
-        "label": "",
+        "label": "LED control",
         "group": "a805bc64178b1a5e",
         "format": "rgb",
         "outformat": "string",
@@ -627,7 +660,7 @@
         "showLightness": true,
         "square": "false",
         "dynOutput": "false",
-        "order": 3,
+        "order": 7,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -1659,7 +1692,7 @@
         "name": "Open Camera",
         "group": "4d3812074d50c30f",
         "order": 5,
-        "width": "5",
+        "width": "6",
         "height": "1",
         "passthru": false,
         "label": "Open Camera",
@@ -2012,5 +2045,360 @@
         "x": 1170,
         "y": 760,
         "wires": []
+    },
+    {
+        "id": "3b07d086b3f5ca4f",
+        "type": "ui_text",
+        "z": "51fc485990eae9e2",
+        "group": "a805bc64178b1a5e",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "name": "Debug text",
+        "label": "This tab is for debugging only",
+        "format": "",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1190,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "c69301e258032bcd",
+        "type": "ui_button",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "group": "a805bc64178b1a5e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Shutdown system",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 60,
+        "wires": [
+            [
+                "099fcea174a0354d"
+            ]
+        ]
+    },
+    {
+        "id": "95a6b0b49782f54c",
+        "type": "ui_button",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "group": "a805bc64178b1a5e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Restart system",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 740,
+        "y": 60,
+        "wires": [
+            [
+                "ea7f49d618e15941"
+            ]
+        ]
+    },
+    {
+        "id": "d472ef0ef5528a35",
+        "type": "ui_text",
+        "z": "51fc485990eae9e2",
+        "group": "a805bc64178b1a5e",
+        "order": 4,
+        "width": "6",
+        "height": "1",
+        "name": "Manually text",
+        "label": "Manually control motor and light",
+        "format": "",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1190,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "517f24cc8f15f5ef",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Test HERE",
+        "payloadType": "str",
+        "x": 880,
+        "y": 1040,
+        "wires": [
+            [
+                "40c987dbde0daedf"
+            ]
+        ]
+    },
+    {
+        "id": "5797ad9bb93aa276",
+        "type": "gotify-notification",
+        "z": "51fc485990eae9e2",
+        "server": "b63c3eb58a3b54a3",
+        "title": "AI monitoring",
+        "x": 1350,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "40c987dbde0daedf",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rapid movement",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "title",
+                "pt": "msg",
+                "to": "Movement detected",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "priority",
+                "pt": "msg",
+                "to": "7",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 1040,
+        "wires": [
+            [
+                "5797ad9bb93aa276"
+            ]
+        ]
+    },
+    {
+        "id": "7760270796f7ae3e",
+        "type": "http request",
+        "z": "1311574b9598fed7",
+        "name": "Send Request",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "{{{serverBaseURL}}}/message?token={{appToken}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 960,
+        "y": 260,
+        "wires": [
+            [
+                "cfbb18f0d1a89057",
+                "cce20920a516f50d"
+            ]
+        ]
+    },
+    {
+        "id": "15191cf7909388fb",
+        "type": "credentials",
+        "z": "1311574b9598fed7",
+        "name": "Data: Server URL & App Token",
+        "props": [
+            {
+                "value": "appToken",
+                "type": "msg"
+            },
+            {
+                "value": "serverBaseURL",
+                "type": "msg"
+            }
+        ],
+        "x": 710,
+        "y": 260,
+        "wires": [
+            [
+                "7760270796f7ae3e"
+            ]
+        ]
+    },
+    {
+        "id": "c12183d9fc82a5aa",
+        "type": "change",
+        "z": "1311574b9598fed7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.priority",
+                "pt": "msg",
+                "to": "7",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.extras",
+                "pt": "msg",
+                "to": "{\"client::notification\":{\"click\":{\"url\":\"http://192.168.0.2:1880/ui/#!/1\"}}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 220,
+        "wires": [
+            [
+                "15191cf7909388fb"
+            ]
+        ]
+    },
+    {
+        "id": "df70aefdddc2a851",
+        "type": "template",
+        "z": "1311574b9598fed7",
+        "name": "Payload: Success",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Notification sent succesfully!",
+        "output": "str",
+        "x": 1170,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cfbb18f0d1a89057",
+        "type": "switch",
+        "z": "1311574b9598fed7",
+        "name": "Success?",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 160,
+        "wires": [
+            [
+                "df70aefdddc2a851"
+            ]
+        ]
+    },
+    {
+        "id": "cce20920a516f50d",
+        "type": "switch",
+        "z": "1311574b9598fed7",
+        "name": "Failure?",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "200",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 340,
+        "wires": [
+            [
+                "31b99c2cef93dfcc"
+            ]
+        ]
+    },
+    {
+        "id": "31b99c2cef93dfcc",
+        "type": "template",
+        "z": "1311574b9598fed7",
+        "name": "Payload: Failure",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Notification Failed to send :[",
+        "output": "str",
+        "x": 1160,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "354ffe796985b0e2",
+        "type": "inject",
+        "z": "1311574b9598fed7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Test",
+        "payloadType": "str",
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "c12183d9fc82a5aa"
+            ]
+        ]
     }
 ]
