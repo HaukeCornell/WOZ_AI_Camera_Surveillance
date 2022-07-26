@@ -11,7 +11,8 @@
         "id": "dac2eed660b33142",
         "type": "ui_tab",
         "name": "Home",
-        "icon": "dashboard",
+        "icon": "power_settings_new",
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -115,7 +116,7 @@
     {
         "id": "0c51c89e7beff37c",
         "type": "ui_group",
-        "name": "Default",
+        "name": "Camera Controls",
         "tab": "dac2eed660b33142",
         "order": 1,
         "disp": true,
@@ -127,8 +128,8 @@
         "id": "4d3812074d50c30f",
         "type": "ui_group",
         "name": "Stream",
-        "tab": "dac2eed660b33142",
-        "order": 2,
+        "tab": "aba3da6e9323ebf6",
+        "order": 3,
         "disp": true,
         "width": "20",
         "collapse": false,
@@ -138,8 +139,8 @@
         "id": "a805bc64178b1a5e",
         "type": "ui_group",
         "name": "Rotate",
-        "tab": "dac2eed660b33142",
-        "order": 3,
+        "tab": "655c8dc16a67b913",
+        "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -151,6 +152,24 @@
         "d": true,
         "name": "",
         "apiKey": ""
+    },
+    {
+        "id": "aba3da6e9323ebf6",
+        "type": "ui_tab",
+        "name": "Stream",
+        "icon": "camera",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "655c8dc16a67b913",
+        "type": "ui_tab",
+        "name": "Debug",
+        "icon": "bug_report",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "b656d2aa9b7a57c8",
@@ -165,7 +184,7 @@
         "oldrc": false,
         "name": "",
         "x": 420,
-        "y": 120,
+        "y": 1220,
         "wires": [
             [
                 "6465a5aa99d6378d"
@@ -196,7 +215,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 120,
+        "y": 1200,
         "wires": [
             [
                 "b656d2aa9b7a57c8"
@@ -217,7 +236,7 @@
         "statusVal": "payload",
         "statusType": "auto",
         "x": 740,
-        "y": 120,
+        "y": 1200,
         "wires": []
     },
     {
@@ -238,7 +257,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 130,
-        "y": 180,
+        "y": 1260,
         "wires": [
             [
                 "b656d2aa9b7a57c8"
@@ -249,11 +268,11 @@
         "id": "b8a0a8a1ed9afc77",
         "type": "python3-function",
         "z": "51fc485990eae9e2",
-        "name": "",
+        "name": "Motor Control",
         "func": "import RPi.GPIO as GPIO\nimport time\nGPIO.setmode(GPIO.BOARD)\ncontrol_pins = [7,11,13,15]\nfor pin in control_pins:\n    GPIO.setup(pin, GPIO.OUT)\n    GPIO.output(pin, 0)\n\nhalfstep_seq = [\n    [1,0,0,0],\n    [1,1,0,0],\n    [0,1,0,0],\n    [0,1,1,0],\n    [0,0,1,0],\n    [0,0,1,1],\n    [0,0,0,1],\n    [1,0,0,1]\n]\n\nnode.send(\"direction: \" + str(msg['direction']) + \"  steps: \"+ str(int(msg['steps'])) + \"  waitBetweenSteps: \" + str(float(msg['waitBetweenSteps'] )))\n\nif msg['direction'] == \"forward\":\n    for i in range(int(msg['steps'])):\n        for halfstep in range(8):\n            for pin in range(4):\n                GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n            time.sleep(float(msg['waitBetweenSteps']))\n        \n\nelif msg['direction'] == \"backward\":\n\n    for i in range(msg['steps']):\n        for halfstep in reversed(range(8)):\n            for pin in range(4):\n                GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])\n            time.sleep(float(msg['waitBetweenSteps']))\n\nGPIO.cleanup()\n\n",
         "outputs": 1,
-        "x": 460,
-        "y": 560,
+        "x": 1030,
+        "y": 660,
         "wires": [
             [
                 "f4675ee063a53a3b"
@@ -287,8 +306,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 190,
-        "y": 560,
+        "x": 680,
+        "y": 680,
         "wires": [
             [
                 "b8a0a8a1ed9afc77"
@@ -308,8 +327,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 560,
+        "x": 1210,
+        "y": 660,
         "wires": []
     },
     {
@@ -339,8 +358,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 190,
-        "y": 600,
+        "x": 680,
+        "y": 660,
         "wires": [
             [
                 "b8a0a8a1ed9afc77"
@@ -381,7 +400,7 @@
         "to": "",
         "reg": false,
         "x": 490,
-        "y": 640,
+        "y": 740,
         "wires": [
             [
                 "b8a0a8a1ed9afc77",
@@ -424,7 +443,7 @@
         "to": "",
         "reg": false,
         "x": 490,
-        "y": 680,
+        "y": 780,
         "wires": [
             [
                 "b8a0a8a1ed9afc77",
@@ -440,8 +459,8 @@
         "name": "",
         "label": "left",
         "tooltip": "",
-        "group": "0c51c89e7beff37c",
-        "order": 0,
+        "group": "a805bc64178b1a5e",
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -453,7 +472,7 @@
         "step": 1,
         "className": "",
         "x": 340,
-        "y": 640,
+        "y": 740,
         "wires": [
             [
                 "3297b75b82b89c1c"
@@ -467,8 +486,8 @@
         "name": "",
         "label": "right",
         "tooltip": "",
-        "group": "0c51c89e7beff37c",
-        "order": 0,
+        "group": "a805bc64178b1a5e",
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -480,7 +499,7 @@
         "step": 1,
         "className": "",
         "x": 340,
-        "y": 680,
+        "y": 780,
         "wires": [
             [
                 "fe71253d25a2b7f4"
@@ -507,7 +526,7 @@
         "to": "",
         "reg": false,
         "x": 770,
-        "y": 640,
+        "y": 740,
         "wires": [
             [
                 "ecc36a5fd1dda4a4"
@@ -534,7 +553,7 @@
         "to": "",
         "reg": false,
         "x": 770,
-        "y": 680,
+        "y": 780,
         "wires": [
             [
                 "de6fc59e44147bc2"
@@ -559,7 +578,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 960,
-        "y": 640,
+        "y": 740,
         "wires": [
             [
                 "b039fabc420e2d81"
@@ -584,7 +603,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 960,
-        "y": 680,
+        "y": 780,
         "wires": [
             [
                 "a06ac381633b4f90"
@@ -597,7 +616,7 @@
         "z": "51fc485990eae9e2",
         "name": "",
         "label": "",
-        "group": "0c51c89e7beff37c",
+        "group": "a805bc64178b1a5e",
         "format": "rgb",
         "outformat": "string",
         "showSwatch": false,
@@ -608,7 +627,7 @@
         "showLightness": true,
         "square": "false",
         "dynOutput": "false",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -616,11 +635,10 @@
         "topicType": "msg",
         "className": "",
         "x": 90,
-        "y": 760,
+        "y": 860,
         "wires": [
             [
-                "147c59dc57af6bc0",
-                "6465a5aa99d6378d"
+                "147c59dc57af6bc0"
             ]
         ]
     },
@@ -635,9 +653,9 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "",
-        "x": 560,
-        "y": 760,
+        "name": "LED Control",
+        "x": 470,
+        "y": 860,
         "wires": [
             [
                 "1062305c3b13929a"
@@ -690,10 +708,11 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 760,
+        "y": 860,
         "wires": [
             [
-                "158872ab42aa15e0"
+                "158872ab42aa15e0",
+                "1062305c3b13929a"
             ]
         ]
     },
@@ -710,8 +729,8 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 880,
-        "y": 760,
+        "x": 680,
+        "y": 860,
         "wires": []
     },
     {
@@ -801,8 +820,8 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "",
-        "x": 560,
+        "name": "Camera Control",
+        "x": 420,
         "y": 400,
         "wires": [
             [
@@ -829,7 +848,7 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 1060,
+        "x": 700,
         "y": 400,
         "wires": []
     },
@@ -839,7 +858,7 @@
         "z": "51fc485990eae9e2",
         "name": "",
         "group": "0c51c89e7beff37c",
-        "order": 5,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -848,7 +867,7 @@
         "color": "",
         "bgcolor": "",
         "className": "",
-        "icon": "",
+        "icon": "stop_screen_share",
         "payload": "run",
         "payloadType": "str",
         "topic": "payload",
@@ -858,7 +877,8 @@
         "wires": [
             [
                 "4b63c2827d6959f7",
-                "65dba4624991126b"
+                "e7dabda35bf65f08",
+                "4e96f2ab91c216ba"
             ]
         ]
     },
@@ -868,7 +888,7 @@
         "z": "51fc485990eae9e2",
         "name": "",
         "group": "0c51c89e7beff37c",
-        "order": 4,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -877,7 +897,7 @@
         "color": "",
         "bgcolor": "",
         "className": "",
-        "icon": "",
+        "icon": "wb_sunny",
         "payload": "run",
         "payloadType": "str",
         "topic": "payload",
@@ -887,7 +907,9 @@
         "wires": [
             [
                 "9718a2c3095fb608",
-                "65dba4624991126b"
+                "65dba4624991126b",
+                "388b2e7adace4a82",
+                "b83739ddd86e93b8"
             ]
         ]
     },
@@ -897,7 +919,7 @@
         "z": "51fc485990eae9e2",
         "name": "",
         "group": "0c51c89e7beff37c",
-        "order": 3,
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -906,7 +928,7 @@
         "color": "",
         "bgcolor": "",
         "className": "",
-        "icon": "",
+        "icon": "highlight",
         "payload": "run",
         "payloadType": "str",
         "topic": "payload",
@@ -916,7 +938,9 @@
         "wires": [
             [
                 "efec5d59a092c176",
-                "65dba4624991126b"
+                "65dba4624991126b",
+                "388b2e7adace4a82",
+                "b83739ddd86e93b8"
             ]
         ]
     },
@@ -998,57 +1022,6 @@
         "wires": [
             [
                 "7bd5a923d6fc93c5"
-            ]
-        ]
-    },
-    {
-        "id": "553f7e1863755e2e",
-        "type": "ui_template",
-        "z": "51fc485990eae9e2",
-        "group": "4d3812074d50c30f",
-        "name": "",
-        "order": 6,
-        "width": "20",
-        "height": "12",
-        "format": "<!DOCTYPE html>\n<html>\n\n<head>\n    <style>\n        iframe {\n            width: 786px;\n            height: 600px;\n            border: 0;\n            overflow: hidden;\n        }\n    </style>\n</head>\n\n<body>\n    <center>\n        <h2 style=\"color:green\">GeeksforGeeks</h2>\n        <h4 style=\"color:purple\">Reload / Refresh an iframe</h4>\n        <iframe id=\"iframeid\" src=\"http://raspberypi.local:5000\" width=\"600\" height=\"450\" frameborder=\"0\"\n            style=\"border:0\" allowfullscreen>\n\n            \n        </iframe>\n        <input type=\"button\"\n               id=\"btn\"\n               value=\"Refresh\" />\n\n        <div ng-bind-html=\"msg.payload\"></div>\n            <script>\n                function reload() {\n                    document.getElementById('iframeid').src += '';\n                }\n                btn.onclick = reload;\n               \n                //console.dir(scope) // this works\n                //console.dir(scope.msg) // This doesn't because scope.msg doesn't yet exist\n                \n                // Lambda function to access the Angular Scope\n                (function(scope) {\n                //console.log('--- SCOPE ---')\n                //console.dir(scope) // this works but you only get it once (on startup)\n                //console.dir(scope.msg) // Doesn't work for because scope.msg doesn't yet exist\n\n                //Have to use $watch - as we can't directly access $scope - so we pick up new, incoming msg's\n                scope.$watch('msg.payload', function(newVal, oldVal) {\n                console.log('- Scope.msg -');\n                console.dir(scope.msg);\n                })\n\n                })(scope)\n\n            </script>        \n    </center>\n\n</body>\n\n</html>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 860,
-        "y": 340,
-        "wires": [
-            [
-                "6465a5aa99d6378d"
-            ]
-        ]
-    },
-    {
-        "id": "f55d9a479d6cb814",
-        "type": "ui_button",
-        "z": "51fc485990eae9e2",
-        "name": "",
-        "group": "0c51c89e7beff37c",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "label": "Refresh",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "Refresh",
-        "payloadType": "str",
-        "topic": "payload",
-        "topicType": "msg",
-        "x": 580,
-        "y": 340,
-        "wires": [
-            [
-                "553f7e1863755e2e"
             ]
         ]
     },
@@ -1317,7 +1290,7 @@
         "z": "51fc485990eae9e2",
         "name": "",
         "pauseType": "delay",
-        "timeout": "4",
+        "timeout": "5",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -1332,8 +1305,712 @@
         "y": 260,
         "wires": [
             [
-                "f55d9a479d6cb814"
+                "0ac1bad5e801ecf0"
             ]
         ]
+    },
+    {
+        "id": "32e14c558394e8a0",
+        "type": "ui_ui_control",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "events": "all",
+        "x": 920,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0ac1bad5e801ecf0",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Stream",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 300,
+        "wires": [
+            [
+                "32e14c558394e8a0"
+            ]
+        ]
+    },
+    {
+        "id": "f55d9a479d6cb814",
+        "type": "ui_button",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "group": "4d3812074d50c30f",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "refresh",
+        "payload": "Home",
+        "payloadType": "str",
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 600,
+        "y": 200,
+        "wires": [
+            [
+                "32e14c558394e8a0",
+                "8092eaea7904da25"
+            ]
+        ]
+    },
+    {
+        "id": "31b7f3dbed5f1478",
+        "type": "ui_iframe",
+        "z": "51fc485990eae9e2",
+        "group": "4d3812074d50c30f",
+        "name": "",
+        "order": 1,
+        "width": "20",
+        "height": "12",
+        "url": "http://raspberrypi.local:5000",
+        "origin": "*",
+        "scale": 100,
+        "x": 130,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "388b2e7adace4a82",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "turn motor backward",
+        "rules": [
+            {
+                "t": "set",
+                "p": "direction",
+                "pt": "msg",
+                "to": "backward",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "waitBetweenSteps",
+                "pt": "msg",
+                "to": "0.005",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "steps",
+                "pt": "msg",
+                "to": "256",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 500,
+        "wires": [
+            [
+                "b8a0a8a1ed9afc77"
+            ]
+        ]
+    },
+    {
+        "id": "e7dabda35bf65f08",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "BLOCKED_LEFT",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 360,
+        "wires": [
+            [
+                "c22ca7a9aba44d44"
+            ]
+        ]
+    },
+    {
+        "id": "b83739ddd86e93b8",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "15 17 21",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 140,
+        "y": 560,
+        "wires": [
+            [
+                "1f83c74d76231e82",
+                "158872ab42aa15e0"
+            ]
+        ]
+    },
+    {
+        "id": "1f83c74d76231e82",
+        "type": "delay",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 300,
+        "y": 560,
+        "wires": [
+            [
+                "e75d651a771a4090"
+            ]
+        ]
+    },
+    {
+        "id": "e75d651a771a4090",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0 0 0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 560,
+        "wires": [
+            [
+                "158872ab42aa15e0"
+            ]
+        ]
+    },
+    {
+        "id": "bf3e0f643d780fb9",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 740,
+        "wires": [
+            [
+                "b83739ddd86e93b8"
+            ]
+        ]
+    },
+    {
+        "id": "4e96f2ab91c216ba",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "26 10 16",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 140,
+        "y": 600,
+        "wires": [
+            [
+                "d4217ab2417bc82e",
+                "158872ab42aa15e0"
+            ]
+        ]
+    },
+    {
+        "id": "d4217ab2417bc82e",
+        "type": "delay",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 300,
+        "y": 600,
+        "wires": [
+            [
+                "c5e01b128f4d9023"
+            ]
+        ]
+    },
+    {
+        "id": "c5e01b128f4d9023",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0 0 0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 600,
+        "wires": [
+            [
+                "158872ab42aa15e0"
+            ]
+        ]
+    },
+    {
+        "id": "29b76f4c69c130dd",
+        "type": "ui_button",
+        "z": "51fc485990eae9e2",
+        "name": "Open Camera",
+        "group": "4d3812074d50c30f",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Open Camera",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "remove_red_eye",
+        "payload": "{\"camera\":\"open\"}",
+        "payloadType": "str",
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 880,
+        "y": 520,
+        "wires": [
+            [
+                "0f7a72c0d99ddc90",
+                "388b2e7adace4a82",
+                "ff135c7243f4c594"
+            ]
+        ]
+    },
+    {
+        "id": "8092eaea7904da25",
+        "type": "delay",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 160,
+        "wires": [
+            [
+                "de676ca6f603f6a6"
+            ]
+        ]
+    },
+    {
+        "id": "de676ca6f603f6a6",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "Back to Stream",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Stream",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 220,
+        "wires": [
+            [
+                "32e14c558394e8a0"
+            ]
+        ]
+    },
+    {
+        "id": "0f7a72c0d99ddc90",
+        "type": "http request",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "localhost:5000",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1230,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "be93ca1324976a10",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"camera\":\"open\"}",
+        "payloadType": "json",
+        "x": 1050,
+        "y": 460,
+        "wires": [
+            [
+                "0f7a72c0d99ddc90"
+            ]
+        ]
+    },
+    {
+        "id": "3ff9b3e73993324c",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"camera\":\"blur\"}",
+        "payloadType": "json",
+        "x": 1040,
+        "y": 420,
+        "wires": [
+            [
+                "0f7a72c0d99ddc90"
+            ]
+        ]
+    },
+    {
+        "id": "01021426b1d1f2b9",
+        "type": "ui_slider",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "label": "Keep open (s)",
+        "tooltip": "",
+        "group": "4d3812074d50c30f",
+        "order": 4,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "outs": "end",
+        "topic": "payload",
+        "topicType": "msg",
+        "min": "5",
+        "max": "600",
+        "step": "5",
+        "className": "",
+        "x": 1180,
+        "y": 800,
+        "wires": [
+            [
+                "e84f4aab09ef168b"
+            ]
+        ]
+    },
+    {
+        "id": "5a3e014245c487e1",
+        "type": "delay",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "pauseType": "delayv",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1180,
+        "y": 560,
+        "wires": [
+            [
+                "4553ba146060cc30",
+                "dbacf2cababb5b4c"
+            ]
+        ]
+    },
+    {
+        "id": "4553ba146060cc30",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "blur",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"camera\":\"blur\"}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1310,
+        "y": 520,
+        "wires": [
+            [
+                "0f7a72c0d99ddc90"
+            ]
+        ]
+    },
+    {
+        "id": "dbacf2cababb5b4c",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "turn motor forward",
+        "rules": [
+            {
+                "t": "set",
+                "p": "direction",
+                "pt": "msg",
+                "to": "forward",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "waitBetweenSteps",
+                "pt": "msg",
+                "to": "0.005",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "steps",
+                "pt": "msg",
+                "to": "256",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1290,
+        "y": 620,
+        "wires": [
+            [
+                "b8a0a8a1ed9afc77"
+            ]
+        ]
+    },
+    {
+        "id": "66305e9d1d22cd7d",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1460,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ff135c7243f4c594",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "delay",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 600,
+        "wires": [
+            [
+                "5a3e014245c487e1"
+            ]
+        ]
+    },
+    {
+        "id": "e84f4aab09ef168b",
+        "type": "function",
+        "z": "51fc485990eae9e2",
+        "name": "s to ms",
+        "func": "msg.payload *= 1000;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1320,
+        "y": 760,
+        "wires": [
+            [
+                "66305e9d1d22cd7d"
+            ]
+        ]
+    },
+    {
+        "id": "b33d9f5955c6c759",
+        "type": "ui_text",
+        "z": "51fc485990eae9e2",
+        "group": "4d3812074d50c30f",
+        "order": 3,
+        "width": "6",
+        "height": "1",
+        "name": "placeholder",
+        "label": "",
+        "format": "",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 760,
+        "wires": []
     }
 ]
