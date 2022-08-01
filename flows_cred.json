@@ -1,9 +1,5 @@
 {
     "0f7a72c0d99ddc90": {},
-    "15191cf7909388fb": {
-        "creds": "[{\"value\":\"ANwx3GQNrXkoIRI\",\"type\":\"str\"},{\"value\":\"http://192.168.1.42:80\",\"type\":\"str\"}]"
-    },
-    "7760270796f7ae3e": {},
     "a2013af6e44db409": {
         "apiKey": "ANwx3GQNrXkoIRI"
     },

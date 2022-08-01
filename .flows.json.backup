@@ -219,8 +219,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 420,
-        "y": 1220,
+        "x": 440,
+        "y": 1680,
         "wires": [
             [
                 "6465a5aa99d6378d"
@@ -250,8 +250,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 160,
-        "y": 1200,
+        "x": 180,
+        "y": 1660,
         "wires": [
             [
                 "b656d2aa9b7a57c8"
@@ -271,8 +271,8 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 740,
-        "y": 1200,
+        "x": 760,
+        "y": 1660,
         "wires": []
     },
     {
@@ -292,8 +292,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 130,
-        "y": 1260,
+        "x": 150,
+        "y": 1720,
         "wires": [
             [
                 "b656d2aa9b7a57c8"
@@ -671,7 +671,7 @@
         "topicType": "msg",
         "className": "",
         "x": 90,
-        "y": 860,
+        "y": 960,
         "wires": [
             [
                 "147c59dc57af6bc0"
@@ -691,7 +691,7 @@
         "oldrc": false,
         "name": "LED Control",
         "x": 470,
-        "y": 860,
+        "y": 960,
         "wires": [
             [
                 "1062305c3b13929a"
@@ -744,7 +744,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 860,
+        "y": 960,
         "wires": [
             [
                 "158872ab42aa15e0",
@@ -766,7 +766,7 @@
         "statusVal": "payload",
         "statusType": "auto",
         "x": 680,
-        "y": 860,
+        "y": 960,
         "wires": []
     },
     {
@@ -857,8 +857,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Camera Control",
-        "x": 420,
-        "y": 400,
+        "x": 440,
+        "y": 1040,
         "wires": [
             [
                 "be3ed87f91ad09af"
@@ -884,8 +884,8 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 700,
-        "y": 400,
+        "x": 640,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1008,7 +1008,7 @@
         "y": 220,
         "wires": [
             [
-                "7bd5a923d6fc93c5"
+                "f49b159aa030d7b2"
             ]
         ]
     },
@@ -1035,7 +1035,7 @@
         "y": 260,
         "wires": [
             [
-                "7bd5a923d6fc93c5"
+                "f49b159aa030d7b2"
             ]
         ]
     },
@@ -1062,7 +1062,7 @@
         "y": 300,
         "wires": [
             [
-                "7bd5a923d6fc93c5"
+                "f49b159aa030d7b2"
             ]
         ]
     },
@@ -1075,8 +1075,8 @@
         "virtualenv": "/home/pi/Documents/movenet_stream_privacy/physical_camera_interface/rgb_sensor_venv",
         "continuous": true,
         "stdInData": true,
-        "x": 1350,
-        "y": 140,
+        "x": 1230,
+        "y": 980,
         "wires": [
             [
                 "27ab02cd0d2cb9e9"
@@ -1088,7 +1088,7 @@
         "type": "debug",
         "z": "51fc485990eae9e2",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": true,
         "tostatus": true,
@@ -1096,8 +1096,8 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 1500,
-        "y": 140,
+        "x": 1380,
+        "y": 980,
         "wires": []
     },
     {
@@ -1117,8 +1117,8 @@
         "topic": "",
         "payload": "BLURRED_RIGHT",
         "payloadType": "str",
-        "x": 1130,
-        "y": 100,
+        "x": 1010,
+        "y": 1060,
         "wires": [
             [
                 "c22ca7a9aba44d44"
@@ -1142,8 +1142,8 @@
         "topic": "",
         "payload": "MASKED_RIGHT",
         "payloadType": "str",
-        "x": 1120,
-        "y": 160,
+        "x": 1000,
+        "y": 1120,
         "wires": [
             [
                 "c22ca7a9aba44d44"
@@ -1167,8 +1167,8 @@
         "topic": "",
         "payload": "OPEN_RIGHT",
         "payloadType": "str",
-        "x": 1120,
-        "y": 220,
+        "x": 1000,
+        "y": 1180,
         "wires": [
             [
                 "c22ca7a9aba44d44"
@@ -1192,8 +1192,8 @@
         "topic": "",
         "payload": "BLOCKED_LEFT",
         "payloadType": "str",
-        "x": 1140,
-        "y": 60,
+        "x": 1020,
+        "y": 1020,
         "wires": [
             [
                 "c22ca7a9aba44d44"
@@ -1217,8 +1217,8 @@
         "topic": "",
         "payload": "BLURRED_LEFT",
         "payloadType": "str",
-        "x": 1140,
-        "y": 120,
+        "x": 1020,
+        "y": 1080,
         "wires": [
             [
                 "c22ca7a9aba44d44"
@@ -1242,8 +1242,8 @@
         "topic": "",
         "payload": "MASKED_LEFT",
         "payloadType": "str",
-        "x": 1140,
-        "y": 180,
+        "x": 1020,
+        "y": 1140,
         "wires": [
             [
                 "c22ca7a9aba44d44"
@@ -1267,8 +1267,8 @@
         "topic": "",
         "payload": "OPEN_LEFT",
         "payloadType": "str",
-        "x": 1130,
-        "y": 240,
+        "x": 1010,
+        "y": 1200,
         "wires": [
             [
                 "c22ca7a9aba44d44"
@@ -1292,8 +1292,8 @@
         "topic": "",
         "payload": "READ_CONTINOUSLY",
         "payloadType": "str",
-        "x": 1140,
-        "y": 280,
+        "x": 1020,
+        "y": 1240,
         "wires": [
             [
                 "c22ca7a9aba44d44"
@@ -1317,8 +1317,8 @@
         "topic": "",
         "payload": "BLOCKED_RIGHT",
         "payloadType": "str",
-        "x": 1130,
-        "y": 20,
+        "x": 1010,
+        "y": 980,
         "wires": [
             [
                 "c22ca7a9aba44d44"
@@ -1430,8 +1430,8 @@
         "url": "http://raspberrypi.local:5000",
         "origin": "*",
         "scale": 100,
-        "x": 290,
-        "y": 460,
+        "x": 750,
+        "y": 1240,
         "wires": [
             []
         ]
@@ -1481,7 +1481,7 @@
         "id": "e7dabda35bf65f08",
         "type": "change",
         "z": "51fc485990eae9e2",
-        "name": "",
+        "name": "BLOCKED_LEFT",
         "rules": [
             {
                 "t": "set",
@@ -1496,11 +1496,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 920,
+        "x": 530,
         "y": 360,
         "wires": [
             [
-                "c22ca7a9aba44d44"
+                "4cec16956d018d7f"
             ]
         ]
     },
@@ -2138,8 +2138,8 @@
         "internalIPv6": false,
         "publicIPv4": false,
         "publicIPv6": false,
-        "x": 110,
-        "y": 460,
+        "x": 270,
+        "y": 1240,
         "wires": [
             [
                 "55021d540966bfd5"
@@ -2163,8 +2163,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 70,
-        "y": 400,
+        "x": 110,
+        "y": 1240,
         "wires": [
             [
                 "110f7f6e76fbf667"
@@ -2175,15 +2175,15 @@
         "id": "55021d540966bfd5",
         "type": "function",
         "z": "51fc485990eae9e2",
-        "name": "",
+        "name": "set camera view iframe to localhost ip",
         "func": "msg.url = \"http://\" + msg.payload.internalIPv4 + \":5000\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 160,
-        "y": 500,
+        "x": 510,
+        "y": 1240,
         "wires": [
             [
                 "31b7f3dbed5f1478"
@@ -2219,16 +2219,16 @@
         "topic": "",
         "name": "",
         "x": 180,
-        "y": 140,
+        "y": 200,
         "wires": []
     },
     {
         "id": "b563a41d147e38b3",
         "type": "link in",
         "z": "51fc485990eae9e2",
-        "name": "turn motor backward/right",
+        "name": "turn motor backward/left",
         "links": [
-            "734a0506156b5009"
+            "d88f03840cf26084"
         ],
         "x": 345,
         "y": 500,
@@ -2242,9 +2242,9 @@
         "id": "9d0b263feb28b585",
         "type": "link in",
         "z": "51fc485990eae9e2",
-        "name": "turn motor forward/left",
+        "name": "turn motor forward/right",
         "links": [
-            "d88f03840cf26084"
+            "734a0506156b5009"
         ],
         "x": 1145,
         "y": 620,
@@ -2262,8 +2262,8 @@
         "links": [
             "75185c1e3bf303f8"
         ],
-        "x": 345,
-        "y": 940,
+        "x": 325,
+        "y": 900,
         "wires": [
             [
                 "158872ab42aa15e0"
@@ -2285,7 +2285,7 @@
         "color": "",
         "bgcolor": "",
         "className": "",
-        "icon": "wb_sunny",
+        "icon": "all_inclusive",
         "payload": "Starting in background",
         "payloadType": "str",
         "topic": "Streaming",
@@ -2325,7 +2325,7 @@
         "y": 180,
         "wires": [
             [
-                "7bd5a923d6fc93c5"
+                "f49b159aa030d7b2"
             ]
         ]
     },
@@ -2385,6 +2385,112 @@
             [
                 "75185c1e3bf303f8"
             ]
+        ]
+    },
+    {
+        "id": "f2b7efc9a618b81b",
+        "type": "link in",
+        "z": "51fc485990eae9e2",
+        "name": "Camera Control/Start",
+        "links": [
+            "f49b159aa030d7b2"
+        ],
+        "x": 220,
+        "y": 1040,
+        "wires": [
+            [
+                "7bd5a923d6fc93c5"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "f49b159aa030d7b2",
+        "type": "link out",
+        "z": "51fc485990eae9e2",
+        "name": "camera start",
+        "mode": "link",
+        "links": [
+            "f2b7efc9a618b81b"
+        ],
+        "x": 550,
+        "y": 140,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "4cec16956d018d7f",
+        "type": "link out",
+        "z": "51fc485990eae9e2",
+        "name": "camera motor calibration",
+        "mode": "link",
+        "links": [
+            "b02662db37b059aa"
+        ],
+        "x": 750,
+        "y": 360,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "b02662db37b059aa",
+        "type": "link in",
+        "z": "51fc485990eae9e2",
+        "name": "camera motor calibration",
+        "links": [
+            "4cec16956d018d7f"
+        ],
+        "x": 1065,
+        "y": 940,
+        "wires": [
+            [
+                "c22ca7a9aba44d44"
+            ]
+        ]
+    },
+    {
+        "id": "ec95bd9e18d519bd",
+        "type": "inject",
+        "z": "51fc485990eae9e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1380,
+        "wires": [
+            [
+                "842af6c338a7240a"
+            ]
+        ]
+    },
+    {
+        "id": "842af6c338a7240a",
+        "type": "exec",
+        "z": "51fc485990eae9e2",
+        "command": "sudo docker run -p 80:80 -v /var/gotify/data:/app/data gotify/server-arm64",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "launch gotify push message server",
+        "x": 400,
+        "y": 1380,
+        "wires": [
+            [],
+            [],
+            []
         ]
     },
     {
@@ -3022,8 +3128,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 270,
-        "y": 540,
+        "x": 150,
+        "y": 780,
         "wires": [
             [
                 "a28caa844f46be41",
@@ -3038,8 +3144,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 530,
-        "y": 500,
+        "x": 270,
+        "y": 740,
         "wires": []
     },
     {
@@ -3064,8 +3170,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 510,
-        "y": 580,
+        "x": 370,
+        "y": 780,
         "wires": [
             [
                 "78f0ed525611ec2c"
@@ -3079,10 +3185,10 @@
         "id": "734a0506156b5009",
         "type": "link out",
         "z": "327f47efb16c7f0d",
-        "name": "turn motor backward/right",
+        "name": "turn motor forward/right",
         "mode": "link",
         "links": [
-            "b563a41d147e38b3"
+            "9d0b263feb28b585"
         ],
         "x": 1090,
         "y": 760,
@@ -3093,12 +3199,12 @@
         "id": "d88f03840cf26084",
         "type": "link out",
         "z": "327f47efb16c7f0d",
-        "name": "turn motor forward/left",
+        "name": "turn motor backward/left",
         "mode": "link",
         "links": [
-            "9d0b263feb28b585"
+            "b563a41d147e38b3"
         ],
-        "x": 1020,
+        "x": 1030,
         "y": 620,
         "wires": [],
         "l": true
@@ -3167,68 +3273,6 @@
         "wires": []
     },
     {
-        "id": "61f274014b0f40f4",
-        "type": "inject",
-        "z": "327f47efb16c7f0d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "priority",
-                "v": "8",
-                "vt": "num"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "Person went to bed",
-        "payloadType": "str",
-        "x": 530,
-        "y": 960,
-        "wires": [
-            [
-                "53d0b89d375d0141",
-                "4717f9da141800ef"
-            ]
-        ]
-    },
-    {
-        "id": "8c0f7de6a99bcb9b",
-        "type": "inject",
-        "z": "327f47efb16c7f0d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "priority",
-                "v": "8",
-                "vt": "num"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "Person left bed",
-        "payloadType": "str",
-        "x": 520,
-        "y": 1000,
-        "wires": [
-            [
-                "53d0b89d375d0141",
-                "4717f9da141800ef"
-            ]
-        ]
-    },
-    {
         "id": "4717f9da141800ef",
         "type": "ui_toast",
         "z": "327f47efb16c7f0d",
@@ -3259,6 +3303,13 @@
                 "pt": "msg",
                 "to": "Person entered zone",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "priority",
+                "pt": "msg",
+                "to": "8",
+                "tot": "num"
             }
         ],
         "action": "",
@@ -3266,8 +3317,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
-        "y": 760,
+        "x": 640,
+        "y": 800,
         "wires": [
             [
                 "3410be6492fe70a5",
@@ -3288,6 +3339,13 @@
                 "pt": "msg",
                 "to": "Person left zone",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "priority",
+                "pt": "msg",
+                "to": "8",
+                "tot": "num"
             }
         ],
         "action": "",
@@ -3295,8 +3353,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 560,
-        "y": 820,
+        "x": 500,
+        "y": 720,
         "wires": [
             [
                 "4717f9da141800ef",
@@ -3373,48 +3431,92 @@
         "l": true
     },
     {
-        "id": "78f52bcb195e8587",
-        "type": "exec",
-        "z": "1311574b9598fed7",
-        "command": "sudo docker run -p 80:80 -v /var/gotify/data:/app/data gotify/server-arm64",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "true",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
+        "id": "14678bba4d28044b",
+        "type": "ui_switch",
+        "z": "327f47efb16c7f0d",
         "name": "",
-        "x": 640,
-        "y": 440,
+        "label": "Background Processing On",
+        "tooltip": "",
+        "group": "0c51c89e7beff37c",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 180,
+        "y": 360,
         "wires": [
-            [],
-            [],
             []
         ]
     },
     {
-        "id": "8a6a1bbe15e73757",
-        "type": "inject",
-        "z": "1311574b9598fed7",
+        "id": "35ae8145f1a0968b",
+        "type": "ui_switch",
+        "z": "327f47efb16c7f0d",
         "name": "",
-        "props": [
+        "label": "LED Status Light On",
+        "tooltip": "",
+        "group": "0c51c89e7beff37c",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 160,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4737f8473b91a7c1",
+        "type": "change",
+        "z": "327f47efb16c7f0d",
+        "name": "",
+        "rules": [
             {
-                "p": "payload"
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 550,
-        "y": 340,
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 380,
         "wires": [
-            [
-                "78f52bcb195e8587"
-            ]
+            []
         ]
     },
     {
@@ -3473,8 +3575,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1290,
-        "y": 140,
+        "x": 1390,
+        "y": 320,
         "wires": []
     },
     {
@@ -3734,6 +3836,58 @@
         "y": 260,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "655fb07bc036f87f",
+        "type": "inject",
+        "z": "1311574b9598fed7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Test this",
+        "payloadType": "str",
+        "x": 460,
+        "y": 420,
+        "wires": [
+            [
+                "64883ae135386148"
+            ]
+        ]
+    },
+    {
+        "id": "64883ae135386148",
+        "type": "change",
+        "z": "1311574b9598fed7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.priority",
+                "pt": "msg",
+                "to": "7",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 420,
+        "wires": [
+            [
+                "15191cf7909388fb"
+            ]
         ]
     }
 ]
