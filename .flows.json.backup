@@ -478,14 +478,14 @@
         "payloadType": "str",
         "topic": "Streaming",
         "topicType": "str",
-        "x": 90,
-        "y": 420,
+        "x": 1930,
+        "y": 140,
         "wires": [
             [
                 "e7dabda35bf65f08",
                 "6e967834e54e40fb",
-                "4b63c2827d6959f7",
-                "3111df5f84d7d4c1"
+                "3111df5f84d7d4c1",
+                "4b63c2827d6959f7"
             ]
         ]
     },
@@ -509,18 +509,18 @@
         "payloadType": "str",
         "topic": "Streaming",
         "topicType": "str",
-        "x": 500,
+        "x": 620,
         "y": 60,
         "wires": [
             [
                 "9718a2c3095fb608",
                 "65dba4624991126b",
                 "9f4638e980ac8c28",
-                "3a2a6325efdede95",
                 "8ecc0deee2060c99",
                 "5ffb8477c52863bd",
                 "6e9a13ca399534cb",
-                "342ad760f4d5f131"
+                "ab9e57deeb016ef3",
+                "3d87b3e121f960cf"
             ]
         ]
     },
@@ -551,11 +551,11 @@
                 "efec5d59a092c176",
                 "65dba4624991126b",
                 "630a317bde6e428a",
-                "ae920d607f100c74",
                 "ea4f9644eb1c2976",
                 "8bf623e969c3ee4d",
                 "00e362075473ae8a",
-                "342ad760f4d5f131"
+                "5af5afe6aeeb22b8",
+                "833622fa6e6926ed"
             ]
         ]
     },
@@ -578,7 +578,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 150,
+        "x": 70,
         "y": 220,
         "wires": [
             [
@@ -605,7 +605,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
+        "x": 610,
         "y": 220,
         "wires": [
             [
@@ -630,8 +630,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 180,
-        "y": 340,
+        "x": 360,
+        "y": 420,
         "wires": [
             [
                 "0ac1bad5e801ecf0"
@@ -669,8 +669,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 340,
+        "x": 550,
+        "y": 420,
         "wires": [
             [
                 "e9b4453610902957"
@@ -686,7 +686,7 @@
         "order": 4,
         "width": "14",
         "height": "13",
-        "url": "http://raspberrypi.local:5000",
+        "url": "http://192.168.1.183:5000",
         "origin": "*",
         "scale": "100",
         "x": 750,
@@ -714,8 +714,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
-        "y": 420,
+        "x": 2150,
+        "y": 320,
         "wires": [
             [
                 "4cec16956d018d7f"
@@ -1001,8 +1001,8 @@
         "max": "600",
         "step": "5",
         "className": "",
-        "x": 280,
-        "y": 2040,
+        "x": 1000,
+        "y": 980,
         "wires": [
             [
                 "e84f4aab09ef168b"
@@ -1081,8 +1081,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 700,
-        "y": 2040,
+        "x": 1420,
+        "y": 980,
         "wires": [
             []
         ]
@@ -1125,8 +1125,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 2040,
+        "x": 1180,
+        "y": 980,
         "wires": [
             [
                 "66305e9d1d22cd7d"
@@ -1146,8 +1146,8 @@
         "format": "",
         "layout": "row-spread",
         "className": "",
-        "x": 290,
-        "y": 2080,
+        "x": 1010,
+        "y": 1020,
         "wires": []
     },
     {
@@ -1219,8 +1219,8 @@
         "format": "",
         "layout": "row-spread",
         "className": "",
-        "x": 290,
-        "y": 2120,
+        "x": 1010,
+        "y": 1060,
         "wires": []
     },
     {
@@ -1252,9 +1252,9 @@
                 "p": "payload"
             }
         ],
-        "repeat": "10",
+        "repeat": "86400",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": "2",
         "topic": "",
         "payload": "",
@@ -1293,8 +1293,8 @@
         "name": "Start camera (calibrate zone)",
         "mode": "link",
         "links": [
-            "f8c8fb49e1d301b0",
-            "3ae75527dbc2b326"
+            "3ae75527dbc2b326",
+            "f8c8fb49e1d301b0"
         ],
         "x": 200,
         "y": 180,
@@ -1386,8 +1386,8 @@
             "b02662db37b059aa",
             "28c54b40ec2e03f5"
         ],
-        "x": 730,
-        "y": 420,
+        "x": 2190,
+        "y": 380,
         "wires": [],
         "l": true
     },
@@ -1452,21 +1452,6 @@
         "l": true
     },
     {
-        "id": "ae920d607f100c74",
-        "type": "link out",
-        "z": "51fc485990eae9e2",
-        "name": "turn motor backward/left",
-        "mode": "link",
-        "links": [
-            "b563a41d147e38b3",
-            "0cb8332e4be46e1d"
-        ],
-        "x": 210,
-        "y": 140,
-        "wires": [],
-        "l": true
-    },
-    {
         "id": "3b57784d039f5e20",
         "type": "link out",
         "z": "51fc485990eae9e2",
@@ -1502,8 +1487,8 @@
         "z": "51fc485990eae9e2",
         "name": "",
         "events": "all",
-        "x": 560,
-        "y": 340,
+        "x": 740,
+        "y": 420,
         "wires": [
             []
         ]
@@ -1542,7 +1527,7 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 540,
+        "x": 660,
         "y": 100,
         "wires": []
     },
@@ -1561,24 +1546,9 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 90,
-        "y": 460,
+        "x": 2120,
+        "y": 100,
         "wires": []
-    },
-    {
-        "id": "3a2a6325efdede95",
-        "type": "link out",
-        "z": "51fc485990eae9e2",
-        "name": "turn motor backward/left",
-        "mode": "link",
-        "links": [
-            "b563a41d147e38b3",
-            "0cb8332e4be46e1d"
-        ],
-        "x": 570,
-        "y": 140,
-        "wires": [],
-        "l": true
     },
     {
         "id": "8c695bcac0827156",
@@ -1740,8 +1710,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 90,
-        "y": 500,
+        "x": 1990,
+        "y": 220,
         "wires": [
             [
                 "f49b159aa030d7b2",
@@ -1758,8 +1728,8 @@
         "links": [
             "f2b7efc9a618b81b"
         ],
-        "x": 270,
-        "y": 480,
+        "x": 2130,
+        "y": 180,
         "wires": [],
         "l": true
     },
@@ -1840,7 +1810,7 @@
             "f8c8fb49e1d301b0",
             "3ae75527dbc2b326"
         ],
-        "x": 560,
+        "x": 680,
         "y": 180,
         "wires": [],
         "l": true
@@ -1854,7 +1824,7 @@
         "links": [
             "f2b7efc9a618b81b"
         ],
-        "x": 330,
+        "x": 370,
         "y": 220,
         "wires": [],
         "l": true
@@ -1868,7 +1838,7 @@
         "links": [
             "f2b7efc9a618b81b"
         ],
-        "x": 650,
+        "x": 910,
         "y": 220,
         "wires": [],
         "l": true
@@ -1892,7 +1862,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
+        "x": 610,
         "y": 260,
         "wires": [
             []
@@ -2301,8 +2271,8 @@
         "max": "1",
         "step": "0.02",
         "className": "",
-        "x": 410,
-        "y": 2400,
+        "x": 1130,
+        "y": 1340,
         "wires": [
             [
                 "729f0d1f22cd48bd",
@@ -2319,8 +2289,8 @@
         "links": [
             "023420b9dece0160"
         ],
-        "x": 970,
-        "y": 2400,
+        "x": 1690,
+        "y": 1340,
         "wires": [],
         "l": true
     },
@@ -2335,8 +2305,8 @@
         "syntax": "mustache",
         "template": "{\"threshold\": \"{{payload}}\"}",
         "output": "json",
-        "x": 740,
-        "y": 2400,
+        "x": 1460,
+        "y": 1340,
         "wires": [
             [
                 "d72444de6c95ec10"
@@ -2362,8 +2332,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 2360,
+        "x": 1340,
+        "y": 1300,
         "wires": [
             []
         ]
@@ -2379,8 +2349,8 @@
             "b6e9dfef76e82e10",
             "b1ed1a8256d06827"
         ],
-        "x": 390,
-        "y": 2460,
+        "x": 1110,
+        "y": 1400,
         "wires": [
             [
                 "6d4c054d9620c186"
@@ -2405,8 +2375,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 540,
-        "y": 2460,
+        "x": 1260,
+        "y": 1400,
         "wires": [
             [
                 "db2ab02684588e29"
@@ -2432,8 +2402,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 730,
-        "y": 2460,
+        "x": 1450,
+        "y": 1400,
         "wires": [
             [
                 "729f0d1f22cd48bd"
@@ -2446,8 +2416,8 @@
         "z": "51fc485990eae9e2",
         "name": "Store and set threshold",
         "info": "",
-        "x": 400,
-        "y": 2340,
+        "x": 1120,
+        "y": 1280,
         "wires": []
     },
     {
@@ -2583,7 +2553,7 @@
         "payloadType": "str",
         "topic": "Streaming",
         "topicType": "str",
-        "x": 850,
+        "x": 1170,
         "y": 60,
         "wires": [
             [
@@ -2593,7 +2563,7 @@
                 "65dba4624991126b",
                 "e1dd44e4b3278371",
                 "a4b32adfa66f6114",
-                "342ad760f4d5f131"
+                "d01830d0d4f708ea"
             ]
         ]
     },
@@ -2612,7 +2582,7 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 880,
+        "x": 1200,
         "y": 120,
         "wires": []
     },
@@ -2626,8 +2596,8 @@
             "f8c8fb49e1d301b0",
             "3ae75527dbc2b326"
         ],
-        "x": 900,
-        "y": 200,
+        "x": 1220,
+        "y": 160,
         "wires": [],
         "l": true
     },
@@ -2650,8 +2620,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 840,
-        "y": 260,
+        "x": 1160,
+        "y": 200,
         "wires": [
             []
         ]
@@ -2668,7 +2638,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "Camera MOTION",
-        "x": 1210,
+        "x": 1610,
         "y": 60,
         "wires": [
             [
@@ -2695,7 +2665,7 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 1440,
+        "x": 1880,
         "y": 60,
         "wires": []
     },
@@ -2707,7 +2677,7 @@
         "links": [
             "3792ee82b765e86d"
         ],
-        "x": 1200,
+        "x": 1620,
         "y": 120,
         "wires": [
             [
@@ -2725,33 +2695,16 @@
         "links": [
             "8ba072e69dfa4c71"
         ],
-        "x": 280,
-        "y": 520,
+        "x": 2140,
+        "y": 260,
         "wires": [],
         "l": true
-    },
-    {
-        "id": "3d9930e2ce4733c7",
-        "type": "ui_text",
-        "z": "51fc485990eae9e2",
-        "group": "0c51c89e7beff37c",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Stop camera before restarting",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 910,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "e1dd44e4b3278371",
         "type": "change",
         "z": "51fc485990eae9e2",
-        "name": "BLOCKED_LEFT",
+        "name": "MASKED_LEFT",
         "rules": [
             {
                 "t": "set",
@@ -2766,8 +2719,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1090,
-        "y": 240,
+        "x": 1180,
+        "y": 280,
         "wires": [
             [
                 "b65459e68ad89f74"
@@ -2784,8 +2737,8 @@
             "b02662db37b059aa",
             "28c54b40ec2e03f5"
         ],
-        "x": 1330,
-        "y": 240,
+        "x": 1410,
+        "y": 280,
         "wires": [],
         "l": true
     },
@@ -2806,7 +2759,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 230,
+        "x": 210,
         "y": 220,
         "wires": [
             [
@@ -2831,7 +2784,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 570,
+        "x": 750,
         "y": 220,
         "wires": [
             [
@@ -2856,7 +2809,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1050,
+        "x": 1370,
         "y": 60,
         "wires": [
             [
@@ -2865,16 +2818,77 @@
         ]
     },
     {
-        "id": "342ad760f4d5f131",
-        "type": "change",
+        "id": "25dbf6366cb24332",
+        "type": "link in",
+        "z": "51fc485990eae9e2",
+        "name": "kill cameras",
+        "links": [
+            "d01830d0d4f708ea",
+            "ab9e57deeb016ef3",
+            "5af5afe6aeeb22b8"
+        ],
+        "x": 1930,
+        "y": 180,
+        "wires": [
+            [
+                "4b63c2827d6959f7"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "d01830d0d4f708ea",
+        "type": "link out",
         "z": "51fc485990eae9e2",
         "name": "kill",
+        "mode": "link",
+        "links": [
+            "25dbf6366cb24332"
+        ],
+        "x": 1150,
+        "y": 240,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "ab9e57deeb016ef3",
+        "type": "link out",
+        "z": "51fc485990eae9e2",
+        "name": "kill",
+        "mode": "link",
+        "links": [
+            "25dbf6366cb24332"
+        ],
+        "x": 610,
+        "y": 300,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "5af5afe6aeeb22b8",
+        "type": "link out",
+        "z": "51fc485990eae9e2",
+        "name": "kill",
+        "mode": "link",
+        "links": [
+            "25dbf6366cb24332"
+        ],
+        "x": 150,
+        "y": 300,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "833622fa6e6926ed",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "BLURRED_LEFT",
         "rules": [
             {
                 "t": "set",
-                "p": "kill",
+                "p": "payload",
                 "pt": "msg",
-                "to": "",
+                "to": "BLURRED_LEFT",
                 "tot": "str"
             }
         ],
@@ -2883,26 +2897,68 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1190,
-        "y": 180,
+        "x": 170,
+        "y": 140,
         "wires": [
             [
-                "9a05014b19ef91b1",
-                "1d3b7a8580e432d6"
+                "55ce6d68aa3bc63f"
             ]
         ]
     },
     {
-        "id": "9a05014b19ef91b1",
+        "id": "55ce6d68aa3bc63f",
         "type": "link out",
         "z": "51fc485990eae9e2",
-        "name": "camera start",
+        "name": "camera motor calibration",
         "mode": "link",
         "links": [
-            "f2b7efc9a618b81b"
+            "b02662db37b059aa",
+            "28c54b40ec2e03f5"
         ],
-        "x": 1330,
-        "y": 180,
+        "x": 390,
+        "y": 140,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "3d87b3e121f960cf",
+        "type": "change",
+        "z": "51fc485990eae9e2",
+        "name": "MASKED_LEFT",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "BLURRED_LEFT",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 140,
+        "wires": [
+            [
+                "659f0502f9379742"
+            ]
+        ]
+    },
+    {
+        "id": "659f0502f9379742",
+        "type": "link out",
+        "z": "51fc485990eae9e2",
+        "name": "camera motor calibration",
+        "mode": "link",
+        "links": [
+            "b02662db37b059aa",
+            "28c54b40ec2e03f5"
+        ],
+        "x": 870,
+        "y": 140,
         "wires": [],
         "l": true
     },
@@ -3919,7 +3975,9 @@
         "links": [
             "4cec16956d018d7f",
             "de323cc827e7a235",
-            "b65459e68ad89f74"
+            "b65459e68ad89f74",
+            "55ce6d68aa3bc63f",
+            "659f0502f9379742"
         ],
         "x": 150,
         "y": 320,
