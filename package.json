@@ -1,8 +1,17 @@
 {
     "name": "WOZ_AI_Camera_Surveillance",
-    "description": "A Node-RED Project",
+    "description": "This is the Node-RED project for a AI camera surveillance study",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-contrib-python3-function": "0.0.4",
+        "node-red-contrib-pythonshell": "1.5.4",
+        "node-red-contrib-rpi-shutdown": "0.0.2",
+        "node-red-dashboard": "3.1.7",
+        "node-red-node-random": "0.4.0",
+        "node-red-node-ui-iframe": "0.2.1",
+        "node-red-contrib-ip": "1.0.1",
+        "node-red-contrib-gotify": "0.1.0"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows.json",

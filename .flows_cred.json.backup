@@ -1,11 +1,16 @@
 {
     "0f7a72c0d99ddc90": {},
-    "15191cf7909388fb": {
-        "creds": "[{\"value\":\"ANwx3GQNrXkoIRI\",\"type\":\"str\"},{\"value\":\"http://192.168.1.42:80\",\"type\":\"str\"}]"
-    },
-    "7760270796f7ae3e": {},
     "a2013af6e44db409": {
         "apiKey": "ANwx3GQNrXkoIRI"
     },
-    "f3914d316ef27f0e": {}
+    "f3914d316ef27f0e": {},
+    "26afa74b9baa51ff": {
+        "instanceauth": "x9uo47wc0fufx9rrb5g8tie8pw9ke5pc87ndafsv8sestrqeal8wrv4i9wkfyxns"
+    },
+    "8b82ba493a84c142": {
+        "instanceauth": "eswntkp0n3hmb8ngp1w32fqmgn6i7rolgv386talbwwji1zokvwiyupcvyf63vzz"
+    },
+    "bba0a6d8db2db7c0": {
+        "instanceauth": "mznidzvs81hqhwoju81i5asvmrreht4vwhherp6w1p58mfcc3y2pqn3nfjssjy6p"
+    }
 }
